@@ -19,7 +19,7 @@
           "description" : "Project profile to submit.",
           "required" : false,
           "schema" : {
-            "$ref" : "#/definitions/Project Profile"
+            "$ref" : "#/definitions/ProjectProfile"
           }
         } ],
         "responses" : {
@@ -50,7 +50,7 @@
           "200" : {
             "description" : "200 response",
             "schema" : {
-              "$ref" : "#/definitions/inline_response_200"
+              "$ref" : "#/definitions/ProjectProfile"
             }
           },
           "400" : {
@@ -87,7 +87,7 @@
       "type" : "object",
       "title" : "Empty Schema"
     },
-    "Project Profile" : {
+    "ProjectProfile" : {
       "type" : "object",
       "required" : [ "projectName" ],
       "properties" : {
@@ -102,18 +102,6 @@
         "projectName" : "TestProject",
         "application" : "{projectName: 'TestProject', projectDescription: 'This is our project description', projectMissione: 'This is our missions'}"
       }
-    },
-    "inline_response_200" : {
-      "required" : [ "projectName" ],
-      "properties" : {
-        "projectName" : {
-          "type" : "string"
-        },
-        "application" : {
-          "type" : "string"
-        }
-      },
-      "example" : "{\"projectName\":\"TestProject\",\"application\":\"{projectName: 'TestProject', projectDescription: 'This is our project description', projectMissione: 'This is our missions'}\"}"
     }
   }
 }
