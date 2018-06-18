@@ -68,7 +68,8 @@
       "example": {
           "name": "getGas",
           "address": "0x12088237BE120f6516287a74fC01B60935B1cf89",
-          "pollId": "0x3afddf1c9df5e2839c369e89aa989b8948979fc590566840e45b156057c91ca9"
+          "pollId": "0x3afddf1c9df5e2839c369e89aa989b8948979fc590566840e45b156057c91ca9",
+          "namespace": "demo"
       }
     }
   }
