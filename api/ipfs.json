@@ -1,0 +1,132 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.1",
+    "title": "IPFS AWS Gateway"
+  },
+  "host": "8cp34tbm3f.execute-api.ca-central-1.amazonaws.com",
+  "basePath": "/alpha",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "description": "Submit an IPFS API request",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "IPFS Command",
+            "description": "IPFS Command to Request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Command"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Success"
+            }
+          },
+          "500": {
+            "description": "500 response",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "title": "Error Schema",
+      "properties": {
+        "statusCode": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "Success": {
+      "type": "object",
+      "title": "Success Schema",
+      "properties": {
+        "statusCode": {
+          "type": "string"
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "data": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Command": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "string"
+        },
+        "ipfsPath": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "data": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "example": {
+        "ipfs.files.cat": {
+          "command": "cat",
+          "ipfsPath": "QmQT8R3TbtarrE6Jysn1JAP1VbWfvaLzKqtjUdWs9LS4uR"
+        },
+        "ipfs.files.get": {
+          "command": "get",
+          "ipfsPath": "QmQT8R3TbtarrE6Jysn1JAP1VbWfvaLzKqtjUdWs9LS4uR"
+        },
+        "ipfs.files.add": {
+          "command": "add",
+          "data": {
+            "type": "Buffer",
+            "data": [
+              74,
+              102
+            ]
+          }
+        }
+      }
+    }
+  }
+}
