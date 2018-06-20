@@ -1,0 +1,76 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.1",
+    "title": "carbonVoteX backend"
+  },
+  "host": "gnn0c9mfgb.execute-api.ca-central-1.amazonaws.com",
+  "basePath": "/alpha",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/carbonvotex": {
+      "post": {
+        "description": "connect Backend of CarbonVoteX",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Project Profile",
+            "description": "Project profile to submit.",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/ProjectProfile"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          },
+          "400": {
+            "description": "400 response"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Empty": {
+      "type": "object",
+      "title": "Empty Schema"
+    },
+    "ProjectProfile": {
+      "type": "object",
+      "required": [
+        "name address pollId"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "pollId": {
+          "type": "string"
+        }
+      },
+      "example": {
+          "name": "getGas",
+          "address": "0x12088237BE120f6516287a74fC01B60935B1cf89",
+          "pollId": "0x3afddf1c9df5e2839c369e89aa989b8948979fc590566840e45b156057c91ca9",
+          "namespace": "demo"
+      }
+    }
+  }
+}
