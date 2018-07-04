@@ -48,6 +48,10 @@
   "definitions": {
     "FeedConfiguration": {
       "type": "object",
+      "required": [
+        "feedSlug",
+        "userId"
+      ],
       "properties": {
         "feedSlug": {
           "type": "string",
@@ -57,6 +61,15 @@
         "userId": {
           "type": "string",
           "description": "User Id",
+          "example": "123"
+        },
+        "getStreamApiKey": {
+          "type": "string",
+          "description": "GetStream API Key",
+          "example": "123"
+        },
+        "getStreamApiSecret": {
+          "type": "string",
           "example": "123"
         }
       }
